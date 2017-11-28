@@ -10,6 +10,7 @@ let g:magit_close_commit_mapping   = get(g:, 'magit_close_commit_mapping',      
 let g:magit_reload_mapping         = get(g:, 'magit_reload_mapping',            'R' )
 let g:magit_edit_hunk_mapping      = get(g:, 'magit_edit_hunk_mapping',         'E' )
 let g:magit_edit_mapping           = get(g:, 'magit_edit_mapping',              'J' )
+let g:magit_edit_horyzontal_mapping= get(g:, 'magit_edit_horyzontal_mapping',   'j' )
 
 let g:magit_jump_next_hunk         = get(g:, 'magit_jump_next_hunk',            '<C-N>')
 let g:magit_jump_prev_hunk         = get(g:, 'magit_jump_prev_hunk',            '<C-P>')
@@ -135,6 +136,8 @@ function! magit#mapping#set_default()
 				\ "magit#jump_to('rightbelow vnew')", '\<\%(un\)\?staged\>')
 	call s:mg_set_mapping('n', '<C-]>',
 				\ "magit#jump_to('rightbelow vnew')", '\<\%(un\)\?staged\>')
+	call s:mg_set_mapping('n', g:magit_edit_horyzontal_mapping,
+				\ "magit#jump_to('rightbelow new')", '\<\%(un\)\?staged\>')
 
 	call s:mg_set_mapping('n', g:magit_reload_mapping,
 				\ "magit#update_buffer()")
@@ -192,6 +195,8 @@ function! magit#mapping#set_default()
 \.'      if cursor on filename header or hunk, unstage whole file',
 \g:magit_edit_mapping
 \.'      edit, jump cursor to file containing this hunk',
+\g:magit_edit_horyzontal_mapping
+\.'      edit, jump cursor to file containing this hunk (horyzontal split if buffer not opened)',
 \g:magit_jump_next_hunk.','.g:magit_jump_prev_hunk
 \.  '    move to Next/Previous hunk in magit buffer',
 \],
