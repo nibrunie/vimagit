@@ -132,9 +132,9 @@ function! magit#mapping#set_default()
 				\ "magit#edit_hunk()", '\<\%(un\)\?staged\>')
 	
 	call s:mg_set_mapping('n', g:magit_edit_mapping,
-				\ "magit#jump_to()", '\<\%(un\)\?staged\>')
+				\ "magit#jump_to('rightbelow vnew')", '\<\%(un\)\?staged\>')
 	call s:mg_set_mapping('n', '<C-]>',
-				\ "magit#jump_to()", '\<\%(un\)\?staged\>')
+				\ "magit#jump_to('rightbelow vnew')", '\<\%(un\)\?staged\>')
 
 	call s:mg_set_mapping('n', g:magit_reload_mapping,
 				\ "magit#update_buffer()")
